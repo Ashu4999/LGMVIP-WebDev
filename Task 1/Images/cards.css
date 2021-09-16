@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("blackscreen.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "status";
+
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgb(0,0,0,0.9);
+    text-align: center;
+    margin: 20px;
+}
+
+.card-image{
+    grid-area: image;
+    background: url("nature1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-image1{
+    grid-area: image;
+    background: url("nature2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+}
+.card-image2{
+    grid-area: image;
+    background: url("nature3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-text{
+    grid-area: text;
+    margin: 25px;
+}
+
+.card-text span{
+    color: rgb(255,7,110);
+    font-size: 15px;
+}
+
+.card-text h2{
+    margin-top: 0px;
+    font-size: 28px;
+}
+
+.card-text p{
+    margin-top: 20px;
+    color: gray;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+
+.card-status{
+    grid-area: status;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-radius: 0 0 15px 15px;
+    background: rgb(255,7,110);
+}
+
+.card-status .stat{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding: 10px;
+   color: white;
+}
+
+.card-status .value{
+    font-size: 22px;
+}
+
+.card-status .border{
+    border-left: 1px solid rgb(110, 6, 49);
+    border-right: 1px solid rgb(110, 6, 49);
+}
+
+.card-status .value sup{
+    font-size: 12px;
+}
+
+.card:hover{
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+    transition: 0.5s ease;
+    cursor: pointer;
+}

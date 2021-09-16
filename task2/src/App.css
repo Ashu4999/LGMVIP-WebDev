@@ -1,0 +1,42 @@
+
+.logo{
+  border-radius: 50%;
+}
+
+#main_title{
+  margin: auto;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: #4a4de9;
+  color: #fff;
+}
+
+
+
+body{
+  background-image: radial-gradient(circle, #d7f5fb, #b7effb, #94e8fb, #68e1fd, #06daff);
+}
+
+.button{
+  margin: auto;
+  margin-left: 45%;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10%;
+  background-color:#0eb8f2;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.button:hover{
+  margin: auto;
+  margin-left: 45%;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10%;
+  color: #fff;
+  background-color:#840ef2;
+}

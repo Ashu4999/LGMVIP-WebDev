@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnePageSite</title>
+    <link rel="stylesheet" href="onepagesite.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Image Slider cdn  -->
+    <!-- Jquery cdn -->
+    <script  src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- Flickity css and js cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+        function leftNav()
+        {
+            var mobNav = document.getElementById("mobNav");
+            var chbox = document.getElementById("click");
+            var mobbuger = document.getElementById("icon");
+
+            // mobNav.style.left = "-100%";
+            // mobBuger.checked = true;
+
+            if(chbox.checked === false)
+            {
+                mobNav.style.left = "0%";
+                mobbuger.className = "fas fa-times";
+            }
+            else if(chbox.checked === true)
+            {
+                mobNav.style.left = "-100%";
+                mobbuger.className = "fas fa-bars";
+            }
+        }
+        function refreshCheck()
+        {
+            var mobNav = document.getElementById("mobNav");
+            var chbox = document.getElementById("click");
+            var mobbuger = document.getElementById("icon");
+            if(chbox.checked === true)
+            {
+                mobNav.style.left = "-100%";
+                chbox.checked = false;
+                mobbuger.className = "fas fa-bars";
+            }
+        }
+
+        // Initial scroll position
+        var scrollState = 0;
+        
+        // returns current scroll position
+        var scrollTop = function() {
+            return window.scrollY;
+        };
+
+        // Primary scroll event function
+        var scrollDetect = function(home, down, up) {
+            // Current scroll position
+            var currentScroll = scrollTop();
+                if (scrollTop() === 0) {
+                    home();
+                } else if (currentScroll > scrollState) {
+                    down();
+                } else {
+                    up();
+            }
+            // Set previous scroll position
+            scrollState = scrollTop();
+        };
+
+        function homeAction() {
+            console.log("home");
+        }
+
+        function downAction() {
+            var mobbuger = document.getElementById("icon");
+            var chbox = document.getElementById("click");
+            // navClasses.remove('open');
+            // navClasses.add('collapse');
+            console.log("down");
+            mobNav.style.left = "-100%";
+            chbox.checked = false;
+            mobbuger.className = "fas fa-bars";
+        }
+
+        function upAction() {
+            // navClasses.remove('collapse');
+            // navClasses.add('open');
+            console.log("up");
+        }
+
+        window.addEventListener("scroll", function() {
+            scrollDetect(homeAction, downAction, upAction);
+        });
+    </script>
+</head>
+<body>
+    <section id="home">
+        <!-- <header>
+            <a href="#"><h1 class="logo">ZIPPY</h1></a>
+            <label for="click" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul id="menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#">PRICING</a></li>
+                <li><a href="#">TEAM</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </header> -->
+        <nav>
+            <div class="logo">ZIPPY</div>
+            <input type="checkbox" id="click">
+            <label for="click" class="menu-btn" onclick="leftNav()">
+                <i class="fas fa-bars" id="icon"></i>
+            </label>
+            <ul id="mobNav">
+                <li><a href="#" onclick="refreshCheck()">HOME</a></li>
+                <li><a href="#projects" onclick="refreshCheck()">PROJECTS</a></li>
+                <li><a href="#pricing" onclick="refreshCheck()">PRICING</a></li>
+                <li><a href="#Team" onclick="refreshCheck()">TEAM</a></li>
+                <li><a href="#Blog"  onclick="refreshCheck()">BLOG</a></li>
+                <li><a href="#contactus" onclick="refreshCheck()">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="home-info-container">
+            <div class="home-info">
+                <div class="title">
+                    <h1>
+                        One page promising to <br/>
+                        fill all your needs!
+                    </h1>
+                </div>
+                <div class="info-content">
+                    <p>
+                        This is Photoshop's version of Lorem lpsum. Prion <br/>
+                        gravida nibh vel velit auctor aliquet. 
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <button class="bttn" type="button">Learn More</button>
+                    <button class="bttn bttn-change" type="button">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="component2-info-container">
+        <div class="component2-info">
+            <div class="title">
+                <h1>Welcome to Zippy</h1>
+            </div>
+            <div class="comp2-info">
+                <p>
+                    This is Photoshops's version of <br/>
+                    Lorem lpsum.Proin gravida nibh <br/>
+                    vel velit auctor aliquet.Aenean sol- <br/>
+                    licitudin, lorem quis bibendum <br/>
+                    auctor.
+                </p>
+                <i class="fas fa-umbrella umbrella"></i>
+            </div>
+            <div class="info-container">
+                <div class="info-part">
+                    <i class="far fa-bell icon"></i><br/>
+                    <strong class="lorem-topic">LOREM IPSUM</strong>
+                    <p class="">
+                        Lorem ipsum dolor   <br/>
+                        sit amet consectetur    <br/>
+                        adipisicing elit Quas  <br/>
+                        tempore laborum aperiam  <br/>
+                        excepturi eveniet.
+                    </p>
+                    <button type="button" class="bttn">Learn More</button>
+                </div>
+                <div class="info-part">
+                    <i class="far fa-envelope icon"></i><br/>
+                    <strong class="lorem-topic">LOREM IPSUM</strong>
+                    <p class="">
+                        Lorem ipsum dolor   <br/>
+                        sit amet consectetur    <br/>
+                        adipisicing elit Quas  <br/>
+                        tempore laborum aperiam  <br/>
+                        excepturi eveniet.
+                    </p>
+                    <button type="button" class="bttn">Learn More</button>
+                </div>
+                <div class="info-part">
+                    <i class="fas fa-box-open icon"></i><br/>
+                    <strong class="lorem-topic">LOREM IPSUM</strong>
+                    <p class="">
+                        Lorem ipsum dolor   <br/>
+                        sit amet consectetur    <br/>
+                        adipisicing elit Quas  <br/>
+                        tempore laborum aperiam  <br/>
+                        excepturi eveniet.
+                    </p>
+                    <button type="button" class="bttn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <div class="project-container">
+            <div class="project-title"><h1>Projects</h1></div>
+            <div class="project-card-comtainer">
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="Images/project1.png">
+                    </div>
+                    <div class="card-info">
+                        <span class="">
+                            <strong>PROJECT NAME</strong>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur<br/>
+                                adipiscing elit, sed do eiusmod tempor<br/>
+                                incididunt ut labore et dolore magna<br/>
+                                aliqua.
+                            </p>
+                            <button class="card-bttn" type="button">LAUNCH CASE STUDY</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="Images/project2.png">
+                    </div>
+                    <div class="card-info">
+                        <span class="">
+                            <strong>PROJECT NAME</strong>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur<br/>
+                                adipiscing elit, sed do eiusmod tempor<br/>
+                                incididunt ut labore et dolore magna<br/>
+                                aliqua.
+                            </p>
+                            <button class="card-bttn" type="button">LAUNCH CASE STUDY</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="Images/project3.png">
+                    </div>
+                    <div class="card-info">
+                        <span class="">
+                            <strong>PROJECT NAME</strong>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur<br/>
+                                adipiscing elit, sed do eiusmod tempor<br/>
+                                incididunt ut labore et dolore magna<br/>
+                                aliqua.
+                            </p>
+                            <button class="card-bttn" type="button">LAUNCH CASE STUDY</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="Images/project4.png">
+                    </div>
+                    <div class="card-info">
+                        <span class="">
+                            <strong>PROJECT NAME</strong>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur<br/>
+                                adipiscing elit, sed do eiusmod tempor<br/>
+                                incididunt ut labore et dolore magna<br/>
+                                aliqua.
+                            </p>
+                            <button class="card-bttn" type="button">LAUNCH CASE STUDY</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-table"></div>
+        </div>
+    </section>
+    <section id="pricing">
+        <div class="pricing-container">
+            <div class="prining-table">
+                <div class="pricing-title">
+                    <h1>Pricing Table</h1>
+                </div>
+                <div class="price-info">
+                    <div class="col1">
+                        <strong>STANDARD PLAN</strong>
+                        <p class="price-plan">Free</p>
+                        <p class="plan-info">
+                            2GB Available<br/>
+                            15 Max Contacts<br/>
+                            Ongoing Ads
+                        </p>
+                        <button type="button" class="price-bttn">Buy</button>
+                    </div>
+                    <div class="col2">
+                        <strong>BUSINESS PLAN</strong>
+                        <p class="price-plan">19$/MONTH</p>
+                        <p class="plan-info">
+                            2GB Available<br/>
+                            15 Max Contacts<br/>
+                            Ongoing Ads
+                        </p>
+                        <button type="button" class="price-bttn">Buy</button>
+                    </div>
+                    <div class="col3">
+                        <strong>PREMIUM PLAN</strong>
+                        <p class="price-plan">14$/MONTH</p>
+                        <p class="plan-info">
+                            2GB Available<br/>
+                            15 Max Contacts<br/>
+                            Ongoing Ads
+                        </p>
+                        <button type="button" class="price-bttn">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Video Slider -->
+        <div class="Video-slider">
+            <div class="Video-slider-title">
+                <h1>
+                    Video Projects
+                </h1>
+            </div>
+            <div class="carousel" data-flickity>
+                <div class="carousel-cell">
+                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" controls muted>
+                        <source src="Images/video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-cell1">
+                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" controls muted>
+                        <source src="Images/video7.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-cell2">
+                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" controls muted>
+                        <source src="Images/video3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-cell3">
+                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" controls muted>
+                        <source src="Images/video8.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-cell4">
+                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" controls muted>
+                        <source src="Images/video9.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Team">
+        <div class="Zippy-Team">
+            <div class="team-title">
+                <h1>Zippy Team</h1>
+            </div>
+            <div class="team-container">
+                <div class="image-row1">
+                    <div class="employee-info">
+                        <img src="Images/2p.jpg" alt=""><br/>
+                        <P class="employee-name">SARA JOHNSON</P>
+                        <p>Creative Head</p>
+                    </div>
+                    <div class="employee-info">
+                        <img src="Images/1p.jpg" alt=""><br/>
+                        <p class="employee-name">MATT ALEX</p>
+                        <p>Art Director</p>
+                    </div>
+                    <div class="employee-info">
+                        <img src="Images/4p.jpg" alt=""><br/>
+                        <p class="employee-name">CHRIS PHILIPS</p>
+                        <p>Senior Designer</p>
+                    </div>
+                </div>
+                <div class="image-row2">
+                    <div class="employee-info">
+                        <img src="Images/5p.jpg" alt=""><br/>
+                        <p class="employee-name">JIMMY SMITH</p>
+                        <p>Marketing Manager</p>
+                    </div>
+                    <div class="employee-info">
+                        <img src="Images/7p.jpg" alt=""><br/>
+                        <p class="employee-name">ALIZA</p>
+                        <p>SEO MONSTER</p>
+                    </div>
+                    <div class="employee-info">
+                        <img src="Images/6p.jpg" alt=""><br/>
+                        <p class="employee-name">CELIEN JOHN</p>
+                        <p>Senior Designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Image-Slider">
+            <div class="Image-Slider-head">
+                <h1 class="Image-Slider-title">Life in Zippy</h1>
+            </div>
+            <div class="Image" data-flickity>
+                <div class="Image-cell">
+                </div>
+                <div class="Image-cell1">
+                </div>
+                <div class="Image-cell2">
+                </div>
+                <div class="Image-cell3">
+                </div>
+                <div class="Image-cell4">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Blog">
+        <div class="signup-part">
+            <div class="signup-title">
+                <h1>Newsletter Signup</h1>
+            </div>
+            <div class="signup-input">
+                <div class="signup-row1">
+                    <input type="text" class="input-textbox" placeholder="abc@example.com" name="emeilId">
+                </div>
+                <div class="signup-row2">
+                    <button type="button" class="signup-btn1">SIGN UP</button>
+                    <button type="button" class="signup-btn2">SIGN UP</button>
+                </div>
+            </div>
+        </div>
+        <div class="blog-part">
+            <div class="blog-title">
+                <h1>Blog</h1>
+            </div>
+            <div class="blog-container">
+                <div class="blog-row1">
+                    <img src="Images/workenv1.jpg" alt="Blot image one"><br>
+                    <p class="blog-title">
+                            LOREM IPSUM DOLOR </br>
+                            SIT AMET
+                    </p>
+                    </br>
+                    <span>15 Jan 2015</span>
+                    <p class="blog-info">
+                        Lorem Ipsum dolor sit amet,<br>
+                        consectetur adipiscing elit,<br>
+                        sed do eiusmod tempor<br>
+                        incididunt ut labore et dolore<br>
+                        magna aliqua.
+                    </p>
+                    <button type="button">READ MORE</button>
+                </div>
+                <div class="blog-row2">
+                    <img src="Images/workenv2.jpg" alt="Blot image one"><br>
+                    <p class="blog-title">
+                            LOREM IPSUM DOLOR </br>
+                            SIT AMET
+                    </p>
+                    </br>
+                    <span>15 Jan 2015</span>
+                    <p class="blog-info">
+                        Lorem Ipsum dolor sit amet,<br>
+                        consectetur adipiscing elit,<br>
+                        sed do eiusmod tempor<br>
+                        incididunt ut labore et dolore<br>
+                        magna aliqua.
+                    </p>
+                    <button type="button">READ MORE</button>
+                </div>
+                <div class="blog-row3">
+                    <img src="Images/workenv3.jpg" alt="Blot image one"><br>
+                    <p class="blog-title">
+                            LOREM IPSUM DOLOR </br>
+                            SIT AMET
+                    </p>
+                    </br>
+                    <span>15 Jan 2015</span>
+                    <p class="blog-info">
+                        Lorem Ipsum dolor sit amet,<br>
+                        consectetur adipiscing elit,<br>
+                        sed do eiusmod tempor<br>
+                        incididunt ut labore et dolore<br>
+                        magna aliqua.
+                    </p>
+                    <button type="button">READ MORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contactus">
+        <div class="contactus-container">
+            <div class="contactus-input">
+                <div class="contactus-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.6810172457!2d73.72287834853691!3d18.52489042244042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1631555199449!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="contactus-form">
+                    <h1>Contact</h1>
+                    <label for="">NAME</label>
+                    <input type="text" name="Name">
+                    <label for="">EMAIL ADDRESS</label>
+                    <input type="text" name="emailID">
+                    <label for="">SUBJECT</label>
+                    <input type="text" name="subject">
+                    <label for="">MESSAGE</label>
+                    <textarea class="msgArea"></textarea>
+                    <button type="button">SEND</button>
+                </div>
+            </div>
+            <div class="contactus-footer">
+                <div class="office-address">
+                    <p class="footer-topic-title">OFFICE ADDRESS</p>
+                    <p>
+                        Lorem Ipsum Dolor, 234</br>
+                        1200 Consectetur</br>
+                        Adipsching
+                    </p>
+                </div>
+                <div class="follous">
+                    <p class="footer-topic-title">FOLLOW US</p>
+                    <p>
+                        <i class="fab fa-facebook footer-icon fb-icon"></i>
+                        <i class="fab fa-twitter footer-icon tw-icon"></i>
+                        <i class="fab fa-linkedin-in footer-icon lickdin-icon"></i>
+                    </p>
+                </div>
+                <div class="footer-contact">
+                    <p class="footer-topic-title">CONTACT US</p>
+                    <p> 
+                        + 123 456 789</br>
+                        zippy@skpe</br>
+                        enquiry@zippy.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
